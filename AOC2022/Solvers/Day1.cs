@@ -6,12 +6,12 @@ namespace Day1.Solvers
     {
         public override short Day { get; } = 1;
 
-        public override int Solve1()
+        public override object Solve1()
         {
             return GetFoodPerElf().OrderByDescending(e => e).First();
         }
 
-        public override int Solve2()
+        public override object Solve2()
         {
             return GetFoodPerElf().OrderByDescending(e => e).Take(3).Sum();
         }

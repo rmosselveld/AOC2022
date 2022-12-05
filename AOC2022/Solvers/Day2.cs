@@ -6,7 +6,7 @@ namespace AOC2022.Solvers
     {
         public override short Day { get; } = 2;
 
-        public override int Solve1()
+        public override object Solve1()
         {
             var input = GetInput();
 
@@ -18,7 +18,7 @@ namespace AOC2022.Solvers
             return Convert.ToInt32(turn.Sum(t => GetScore(t)));
         }
 
-        public override int Solve2()
+        public override object Solve2()
         {
             var input = GetInput();
 

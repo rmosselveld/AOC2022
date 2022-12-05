@@ -6,7 +6,7 @@ namespace AOC2022.Solvers
     {
         public override short Day { get; } = 3;
 
-        public override int Solve1()
+        public override object Solve1()
         {
             var input = GetInput();
 
@@ -15,7 +15,7 @@ namespace AOC2022.Solvers
             return sackInput.Select(sack => GetPriority(sack.First.Intersect(sack.Second).Single())).Sum();
         }
 
-        public override int Solve2()
+        public override object Solve2()
         {
             var groups = GetInput().Chunk(3);
 

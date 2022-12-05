@@ -6,9 +6,9 @@ namespace AOC
     {
         public abstract short Day { get; }
 
-        public abstract int Solve1();
+        public abstract object Solve1();
 
-        public abstract int Solve2();
+        public abstract object Solve2();
 
         protected string[] GetInput()
         {
