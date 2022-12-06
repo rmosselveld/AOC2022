@@ -1,11 +1,11 @@
-﻿using AOC;
+﻿using AOC2022;
 using McMaster.Extensions.CommandLineUtils;
 internal class Program
 {
     private static readonly IEnumerable<Solver> solvers;
 
     [Option(Description = "Day to solve")]
-    public static int? Day { get; } = 4;
+    public static int? Day { get; } = 6;
 
     static Program()
     {

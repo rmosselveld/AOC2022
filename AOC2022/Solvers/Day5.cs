@@ -1,6 +1,4 @@
-﻿using AOC;
-
-namespace AOC2022.Solvers
+﻿namespace AOC2022.Solvers
 {
     public class Day5 : Solver
     {

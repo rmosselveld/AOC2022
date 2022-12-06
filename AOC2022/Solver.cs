@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace AOC
+﻿namespace AOC2022
 {
     public abstract class Solver
     {
@@ -16,7 +14,8 @@ namespace AOC
             {
                 return File.ReadAllLines($"Inputs\\{Day}.txt");
             }
-            catch (FileNotFoundException)
+            catch (Exception ex) when ((ex is FileNotFoundException) ||
+                                       (ex is DirectoryNotFoundException))
             {
                 Console.WriteLine($"Input file for day {Day} not found");
                 return Array.Empty<string>();
