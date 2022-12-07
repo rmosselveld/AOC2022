@@ -5,7 +5,7 @@ internal class Program
     private static readonly IEnumerable<Solver> solvers;
 
     [Option(Description = "Day to solve")]
-    public static int? Day { get; } = 6;
+    public static int? Day { get; } = 7;
 
     static Program()
     {
