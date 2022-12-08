@@ -29,7 +29,10 @@ public class Day8 : Solver
                     var treesAtBottom = forest.Select(i => i[x]).Skip(y + 1);
 
                     var current = forest[y][x];
-                    if (treesAtLeft.Max() < current || treesAtRight.Max() < current || treesAtTop.Max() < current || treesAtBottom.Max() < current)
+                    if (treesAtLeft.All(t => t < current) || 
+                        treesAtRight.All(t => t < current) ||
+                        treesAtTop.All(t => t < current) ||
+                        treesAtBottom.All(t => t < current))
                     {
                         score++;
                     }
@@ -71,6 +74,12 @@ public class Day8 : Solver
 
     private int GetViewingDistance(int min, IEnumerable<int> view)
     {
-        return view.TakeWhile(i => i < min).Count() + 1;
+        for (int i = 0; i < view.Count(); i++)
+        {
+            if (min <= view.ElementAt(i))
+                return i + 1;
+        }
+
+        return view.Count();
     }
 }
