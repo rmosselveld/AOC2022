@@ -1,4 +1,5 @@
-﻿using AOC2022;
+﻿using System.Diagnostics;
+using AOC2022;
 using McMaster.Extensions.CommandLineUtils;
 internal class Program
 {
@@ -25,7 +26,10 @@ internal class Program
     {
         foreach (var solver in solvers.Where(s => !Day.HasValue || s.Day == Day))
         {
+            Stopwatch stopwatch = Stopwatch.StartNew();
             Console.WriteLine($"Solution day {solver.Day}: Puzzle 1 {solver.Solve1()}, Puzzle 2 {solver.Solve2()}");
+            stopwatch.Stop();
+            Console.WriteLine($"Elapsed {stopwatch.ElapsedMilliseconds}ms");
         }
     }
 }

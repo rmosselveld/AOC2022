@@ -12,18 +12,14 @@ public class Day8 : Solver
 
         var forestWidth = forest.First().Length;
         var forestHeight = forest.Length;
+        int score = 0;
         for (int y = 0; y < forest.Count(); y++)
         {
-            char[] trees = new char[forestWidth];
             for (int x = 0; x < forestWidth; x++)
             {
-                if (y == 0 || y == forestHeight - 1)
+                if (y == 0 || y == forestHeight - 1 || x == 0 || x == forestWidth - 1)
                 {
-                    trees[x] = 'X';
-                }
-                else if (x == 0 || x == forestWidth - 1)
-                {
-                    trees[x] = 'X';
+                    score++;
                 }
                 else
                 {
@@ -35,19 +31,13 @@ public class Day8 : Solver
                     var current = forest[y][x];
                     if (treesAtLeft.Max() < current || treesAtRight.Max() < current || treesAtTop.Max() < current || treesAtBottom.Max() < current)
                     {
-                        trees[x] = 'X';
-                    }
-                    else
-                    {
-                        trees[x] = 'O';
+                        score++;
                     }
                 }
             }
-
-            forestWithVisibility.Add(new string(trees));
         }
 
-        return forestWithVisibility.Select(o => o.Replace("O", String.Empty)).Sum(o => o.Length);
+        return score;
     }
 
     public override object Solve2()
@@ -81,12 +71,6 @@ public class Day8 : Solver
 
     private int GetViewingDistance(int min, IEnumerable<int> view)
     {
-        for (int i = 0; i < view.Count(); i++)
-        {
-            if (min <= view.ElementAt(i))
-                return i + 1;
-        }
-
-        return view.Count();
+        return view.TakeWhile(i => i < min).Count() + 1;
     }
 }
